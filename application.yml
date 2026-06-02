@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all                  # aguarda confirmação de todas as réplicas
+      retries: 3                 # tenta reenviar até 3x em caso de falha
+
+    consumer:
+      group-id: grupo-app
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest  # lê do início se não houver offset salvo
+      enable-auto-commit: true
+
+kafka:
+  topic:
+    pedidos: pedidos
+    notificacoes: notificacoes
