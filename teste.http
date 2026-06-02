@@ -1,0 +1,17 @@
+### Enviar mensagem para tópico pedidos
+POST http://localhost:8080/api/kafka/pedidos
+Content-Type: application/json
+
+{
+  "conteudo": "Pedido #42 - Teclado Mecânico - R$ 299,90"
+}
+
+###
+
+### Enviar mensagem para tópico notificacoes
+POST http://localhost:8080/api/kafka/notificacoes
+Content-Type: application/json
+
+{
+  "conteudo": "Cliente João - Pedido #42 confirmado e enviado!"
+}
